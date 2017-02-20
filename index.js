@@ -13,6 +13,8 @@
 
 		console.log(window.data);
 
+		var $window = $(window);
+
 		var tagsTemplate = Handlebars.compile($("#template--tags").html());
 		var tagsHTML = tagsTemplate(window.data);
 		$('.tags').append(tagsHTML);
@@ -20,6 +22,9 @@
 		var thumbsTemplate = Handlebars.compile($("#template--thumbs").html());
 		var thumbsHTML = thumbsTemplate(window.data);
 		$('.thumbs').append(thumbsHTML);
+
+		var $project = $('.project');
+		var openThumbRect = [0, 0, 0, 0];
 
 
 		window.onhashchange = function(){ onHashChange(); };
@@ -45,15 +50,22 @@
 
 
 		function openProject(name){
-			$('body').css({ overflow: 'hidden' });
+			//$('body').css({ overflow: 'hidden' });
 			var projectTemplate = Handlebars.compile($("#template--project").html());
 			var projectHTML = projectTemplate(window.data.projects[name]);
-			$('.project').empty().append(projectHTML).addClass('open');
+
+			var $thumb = $('[data-name="'+name+'"]');
+
+			$project.empty().append(projectHTML).addClass('open');
+		}
+
+		function closeProject(){
+			$('body').css({ overflow: 'auto' });
+			$project.removeClass('open');
 		}
 
 		function filterThumbs(tag){
-			$('.project').removeClass('open');
-			$('body').css({ overflow: 'auto' });
+			closeProject();
 			$('.thumb').each(function(){
 				var $this = $(this);
 				var tags = $this.data('tags');
@@ -66,9 +78,8 @@
 		}
 
 		function showAllThumbs(){
-			$('.project').removeClass('open');
+			closeProject();
 			$('.thumb').removeClass('hidden');
-			$('body').css({ overflow: 'auto' });
 		}
 
 		$('body').on('click', '.project__close-btn', function(){

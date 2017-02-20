@@ -7,9 +7,18 @@
 		<link rel="stylesheet" href="index.css">
 	</head>
 	<body>
-		<ul class="tags"></ul>
-		<div class="thumbs"></div>
-		<div class="project"></div>
+		<div class="global-container">
+			<div id="top">
+				<h1>Michael Parisi</h1>
+				<ul class="tags"></ul>
+			</div>
+			<div id="left">
+				<div class="thumbs"></div>
+			</div>
+			<div id="right">
+				<div class="project"></div>
+			</div>
+		</div>
 	</body>
 
 	<script src="data.js"></script>
@@ -20,16 +29,25 @@
 </html>
 
 <script id="template--tags" type="text/x-handlebars-template">
-{{#each tags}}
+<li>
+	<a href="./#/">All</a>
+</li>
+<li>
+	<a href="./#/professional">Professional</a>
+</li>
+<li>
+	<a href="./#/personal">Personal</a>
+</li>
+<!-- {{#each tags}}
 	<li>
 		<a href="./#/tag/{{@key}}">{{@key}}</a>
 	</li>
-{{/each}}
+{{/each}} -->
 </script>
 
 <script id="template--thumbs" type="text/x-handlebars-template">
 {{#each projects}}
-	<div class="thumb" data-tags="{{tags}}" style="border-top: solid 10px {{randColor}}">
+	<div class="thumb" data-name="{{@key}}" data-tags="{{tags}}" style="border-top: solid 10px {{randColor}}">
 		<a href="./#/project/{{@key}}">
 			<img class="thumb__img" src="{{thumb}}" />
 			<p class="thumb__title">{{title}}</p>
@@ -54,7 +72,7 @@
 	<div class="project__tags">
 		<span>Tags:</span>
 		{{#each tags}}
-			<a href="./#/tag/{{this}}">{{this}}</a> |
+			<span>{{this}}</span> |
 		{{/each}}
 	</div>
 
