@@ -7,37 +7,20 @@
 		<link rel="stylesheet" href="index.css">
 	</head>
 	<body>
-		<div class="global-container">
-			<div id="top">
-				<h1>Michael Parisi</h1>
-				<ul class="tags"></ul>
-			</div>
-			<div id="left">
-				<div class="thumbs"></div>
-			</div>
-			<div id="right">
-				<div class="project"></div>
-			</div>
+		<div class="grid">
 		</div>
 	</body>
 
 	<script src="data.js"></script>
 	<script src="jquery.js"></script>
+	<script src="jquery.easing.js"></script>
 	<script src="flickity.js"></script>
 	<script src="handlebars.js"></script>
+	<script src="grid.js"></script>
 	<script src="index.js"></script>
 </html>
 
 <script id="template--tags" type="text/x-handlebars-template">
-<li>
-	<a href="./#/">All</a>
-</li>
-<li>
-	<a href="./#/professional">Professional</a>
-</li>
-<li>
-	<a href="./#/personal">Personal</a>
-</li>
 <!-- {{#each tags}}
 	<li>
 		<a href="./#/tag/{{@key}}">{{@key}}</a>
@@ -47,56 +30,53 @@
 
 <script id="template--thumbs" type="text/x-handlebars-template">
 {{#each projects}}
-	<div class="thumb" data-name="{{@key}}" data-tags="{{tags}}" style="border-top: solid 10px {{randColor}}">
-		<a href="./#/project/{{@key}}">
-			<img class="thumb__img" src="{{thumb}}" />
-			<p class="thumb__title">{{title}}</p>
-		</a>
+	<div class="box">
+		<div class="thumb" data-name="{{@key}}" data-tags="{{tags}}">
+			<a href="./#/project/{{@key}}">
+				<img class="thumb__img" src="./img/{{@key}}-thumb.jpg" />
+				<p class="thumb__title">{{title}}</p>
+			</a>
+		</div>
+		<div class="project">
+			<button class="project__close-btn">X</button>
+			<h2>{{title}}</h2>
+
+			{{#if link}}
+			<a href="{{link}}" target="_blank">{{link}}</a>
+			{{/if}}
+
+			{{#if description}}
+			<p>{{description}}</p>
+			{{/if}}
+
+			<div class="project__tags">
+				<span>Tags:</span>
+				{{#each tags}}
+					<span>{{this}}</span> |
+				{{/each}}
+			</div>
+
+			{{#if images}}
+				{{#each images}}
+					<img src="./img/{{this}}" />
+				{{/each}}
+			{{/if}}
+
+			{{#if files}}
+				{{#each files}}
+					{{#ifCond type '==' "html"}}
+						<div class="project__file">
+							<iframe width="{{width}}" height="{{height}}" style="border: none;" src="{{src}}"></iframe>
+						</div>
+					{{/ifCond}}
+					{{#ifCond type '==' "swf"}}
+						<div class="project__file">
+							<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="{{width}}" height="{{height}}" id="movie_name" align="middle"> <param name="movie" value="{{src}}"/> <!--[if !IE]>--> <object type="application/x-shockwave-flash" data="{{src}}" width="{{width}}" height="{{height}}"> <param name="movie" value="{{src}}"/> <!--<![endif]--> <a href="http://www.adobe.com/go/getflash"> <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player"/> </a> <!--[if !IE]>--> </object> <!--<![endif]--> </object>
+						</div>
+					{{/ifCond}}
+				{{/each}}
+			{{/if}}
+		</div>
 	</div>
 {{/each}}
-</script>
-
-<script id="template--project" type="text/x-handlebars-template">
-<div class="project__inner">
-	<button class="project__close-btn">X</button>
-	<h2>{{title}}</h2>
-
-	{{#if link}}
-	<a href="{{link}}" target="_blank">{{link}}</a>
-	{{/if}}
-
-	{{#if description}}
-	<p>{{description}}</p>
-	{{/if}}
-
-	<div class="project__tags">
-		<span>Tags:</span>
-		{{#each tags}}
-			<span>{{this}}</span> |
-		{{/each}}
-	</div>
-
-	{{#if images}}
-		<div class="carousel" data-flickity>
-		{{#each images}}
-			<img src="{{this}}" />
-		{{/each}}
-		</div>
-	{{/if}}
-
-	{{#if files}}
-		{{#each files}}
-			{{#ifCond type '==' "html"}}
-				<div class="project__file">
-					<iframe width="{{width}}" height="{{height}}" style="border: none;" src="{{src}}"></iframe>
-				</div>
-			{{/ifCond}}
-			{{#ifCond type '==' "swf"}}
-				<div class="project__file">
-					<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="{{width}}" height="{{height}}" id="movie_name" align="middle"> <param name="movie" value="{{src}}"/> <!--[if !IE]>--> <object type="application/x-shockwave-flash" data="{{src}}" width="{{width}}" height="{{height}}"> <param name="movie" value="{{src}}"/> <!--<![endif]--> <a href="http://www.adobe.com/go/getflash"> <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player"/> </a> <!--[if !IE]>--> </object> <!--<![endif]--> </object>
-				</div>
-			{{/ifCond}}
-		{{/each}}
-	{{/if}}
-</div>
 </script>

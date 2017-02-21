@@ -4641,4 +4641,20 @@ Handlebars.registerHelper('ifCond', function (v1, operator, v2, options) {
 Handlebars.registerHelper('randColor', function () {
 	return '#'+Math.floor(Math.random()*16777215).toString(16);
 });
+
+Handlebars.registerHelper("times", function (n, key, opts) {
+    var out = "";
+    var i;
+    var data = {};
+    data.key = key;
+
+    for ( i = 1; i < n+1; i += 1 ) {
+        data.index = i;
+        out += opts.fn(this, {
+            data: data
+        });
+    }
+
+    return out;
+});
 ;

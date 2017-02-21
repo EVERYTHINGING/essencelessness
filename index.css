@@ -6,6 +6,11 @@ html {
   box-sizing: inherit;
 }
 
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
 body {
 	margin: 0;
 	padding: 0;
@@ -14,146 +19,71 @@ body {
 	font-style: italic;
 	background-color: #000;
 	color: #fff;
-	overflow: hidden;
 }
 
-.no-transition {
-  transition: none !important;
-}
-
-a {
-	text-decoration: none;
-	color: #fff;
-	font-style: italic;
-}
-
-a:hover {
-	text-decoration: underline;
-}
-
-img {
-	max-width: 100%;
-	margin: 0;
-}
-
-#top {
+.grid {
 	position: absolute;
 	top: 0px;
 	left: 0px;
-	height: 200px;
 	width: 100%;
-	z-index: 2;
+	margin-bottom: 25%;\
+	overflow: visible;
 }
 
-#left {
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	height: 100%;
-	width: 450px;
-	z-index: 3;
-	padding-top: 200px;
-	overflow-y: auto;
+.grid.zoomed .box {
+	opacity: 0.5;
 }
 
-#right {
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	height: 100%;
-	width: 100%;
-	z-index: 1;
-	padding-top: 200px;
-	padding-left: 450px;
+.grid.zoomed .box:hover {
+	opacity: 0.8;
 }
 
-.tags {
-	list-style-type: none;
-	padding: 0px;
+.box {
+	float: left;
+	width: 25%;
+	height: 0px;
+	padding-top: 25%;
+	cursor: pointer;
+	position: relative;
+	overflow: visible;
+	/*transition: opacity 0.2s;*/
 }
 
-.tags li {
-	display: block;
-}
-
-.content {
-	padding: 30px;
-}
-
-.thumbs {
-	text-align: left;
-	font-size: 0;
+.box.open {
+	cursor: auto;
+	opacity: 1 !important;
 }
 
 .thumb {
-	position: relative;
-	display: inline-block;
-	vertical-align: top;
-	width: 200px;
-	height: 200px;
-	margin: 0px;
-	font-size: 12px;
-}
-
-.thumb.hidden {
-	display: none;
-}
-
-.thumb a {
 	display: block;
+	position: absolute;
+	top: 0px;
+	left: 0px;
 	width: 100%;
 	height: 100%;
+	z-index: 1;
 	overflow: hidden;
 }
 
-.thumb__title {
-	display: block;
-	position: absolute;
-	left: 0px;
-	bottom: 0px;
-	height: 30px;
+.thumb img {
 	width: 100%;
-	background-color: #fff;
-	color: #000;
-	padding: 5px;
-	margin: 0px;
-	transition: all 0.3s;
-}
-
-.thumb:hover .thumb__title {
-	height: 20%;
-}
-
-.thumb.open:hover .thumb__title {
-	height: 100% !important;
 }
 
 .project {
 	display: none;
-	
-	height: 100%;
-	padding: 10px;
-	margin: 0px;
-	overflow: hidden;
-}
-
-.project.open {
-	display: block;
-}
-
-.project__inner {
-	position: relative;
-	padding: 20px;
-	height: 100%;
-	overflow-y: auto;
-}
-
-.project__tags {
-	margin: 10px 0px;
-}
-
-.project__close-btn {
 	position: absolute;
-	top: 10px;
-	right: 10px;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	padding: 20px;
+	z-index: 2;
+	overflow-y: auto;
+	background-color: #fff;
+	color: #000;
+}
+
+.project img {
+	display: none;
+	max-width: 100%;
 }

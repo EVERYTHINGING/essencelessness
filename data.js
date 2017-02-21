@@ -8,7 +8,6 @@ window.data = {
 			"link": "./files/personal/archetypeoflife",
 			"description": "lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 			"tags": ["glsl", "personal"],
-			"thumb": "./img/professional/1.png",
 			"images": ["buyatoyota-1.png", "buyatoyota-2.png", "buyatoyota-3.png"]
 		},
 
@@ -18,8 +17,7 @@ window.data = {
 			"link": "http://buyatoyota.com",
 			"description": "lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 			"tags": ["html5", "js", "jquery", "sass", "css3", "grunt", "responsive", "website", "professional"],
-			"thumb": "./img/professional/1.png",
-			"images": ["buyatoyota-1.png", "buyatoyota-2.png", "buyatoyota-3.png"]
+			"images": ["buyatoyota-1.jpg", "buyatoyota-2.jpg", "buyatoyota-3.jpg"]
 		},
 
 		kohler: {
@@ -27,7 +25,6 @@ window.data = {
 			"link": "http://www.us.kohler.com/us/",
 			"description": "lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 			"tags": ["html5", "js", "jquery", "sass", "css3", "grunt", "responsive", "website", "professional"],
-			"thumb": "./img/professional/1.png",
 			"images": ["kohler-1.png", "kohler-2.png", "kohler-3.png"]
 		},
 
@@ -36,7 +33,6 @@ window.data = {
 			"link": "http://getbankingdone.com",
 			"description": "lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 			"tags": ["html5", "js", "jquery", "sass", "css3", "grunt", "responsive", "website", "professional"],
-			"thumb": "./img/professional/1.png",
 			"images": ["getbankingdone-1.png", "getbankingdone-2.png", "getbankingdone-3.png"]
 		},
 
@@ -45,7 +41,6 @@ window.data = {
 			"link": "http://henribendel.com",
 			"description": "lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 			"tags": ["html5", "js", "jquery", "sass", "css3", "grunt", "responsive", "website", "professional"],
-			"thumb": "./img/professional/1.png",
 			"images": ["henribendel-1.png", "henribendel-2.png", "henribendel-3.png"]
 		},
 
@@ -54,7 +49,6 @@ window.data = {
 			"link": "http://bondno9.com",
 			"description": "lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 			"tags": ["html", "js", "jquery", "css", "website", "professional"],
-			"thumb": "./img/professional/1.png",
 			"images": ["bondno9-1.png", "bondno9-2.png", "bondno9-3.png"]
 		},
 
@@ -63,7 +57,6 @@ window.data = {
 			"link": "http://www.jonathanalpeyrie.net",
 			"description": "lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 			"tags": ["html", "js", "jquery", "css", "website", "professional"],
-			"thumb": "./img/professional/1.png",
 			"images": ["jonathanalpeyrie-1.png", "jonathanalpeyrie-2.png", "jonathanalpeyrie-3.png"]
 		},
 
@@ -72,7 +65,6 @@ window.data = {
 			"title": "foster farms banners",
 			"description": "lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 			"tags": ["html5", "banner", "professional"],
-			"thumb": "./img/professional/1.png",
 			"files": [{ type: "html", src: "./files/fosterfarms/simply-raised/300x250/", width: 300, height: 250}, 
 					  { type: "html", src: "./files/fosterfarms/fresh-natural/300x600/", width: 300, height: 600}, 
 					  { type: "html", src: "./files/fosterfarms/organic/728x90/", width: 728, height: 90}]
@@ -82,7 +74,6 @@ window.data = {
 			"title": "clorox banners",
 			"description": "lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 			"tags": ["flash", "banner", "professional"],
-			"thumb": "./img/professional/1.png",
 			"files": [{ type: "swf", src: "http://essencelessness.com/cargo/clorox1.swf", width: 300, height: 250}, { type: "swf", src: "http://essencelessness.com/cargo/clorox2.swf", width: 728, height: 90}]
 		},
 
@@ -90,7 +81,6 @@ window.data = {
 			"title": "google science fair banners",
 			"description": "lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 			"tags": ["flash", "banner", "professional"],
-			"thumb": "./img/professional/1.png",
 			"files": [{ type: "swf", src: "http://essencelessness.com/cargo/bacteria.swf", width: 425, height: 600}, { type: "swf", src: "http://essencelessness.com/cargo/tilt.swf", width: 425, height: 600}]
 		},
 
@@ -98,7 +88,6 @@ window.data = {
 			"title": "myyoutube masthead",
 			"description": "lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 			"tags": ["flash", "banner", "professional"],
-			"thumb": "./img/professional/1.png",
 			"images": ["http://payload126.cargocollective.com/1/4/145507/4836103/myyoutube_o.jpg"]
 		}
 	}
