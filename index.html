@@ -5,9 +5,18 @@
 		<title>Michael Parisi Portfolio</title>
 		<link rel="stylesheet" href="flickity.css">
 		<link rel="stylesheet" href="index.css">
+		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 	</head>
 	<body>
-		<div class="grid">
+		<div class="container">
+			<div class="page-title">
+				<a href="./">Michael Parisi</a>
+				<a href="./?tags=personal">Personal</a>
+				<a href="./?tags=professional">Professional</a>
+			</div>
+			<div class="grid-container">
+				<div class="grid"></div>
+			</div>
 		</div>
 	</body>
 
@@ -30,53 +39,66 @@
 
 <script id="template--thumbs" type="text/x-handlebars-template">
 {{#each projects}}
-	<div class="box">
-		<div class="thumb" data-name="{{@key}}" data-tags="{{tags}}">
-			<a href="./#/project/{{@key}}">
-				<img class="thumb__img" src="./img/{{@key}}-thumb.jpg" />
-				<p class="thumb__title">{{title}}</p>
-			</a>
+	<div class="box" data-name="{{@key}}" data-tags="{{tags}}">
+		<div class="thumb">
+			<img class="thumb__img" src="./img/{{@key}}-thumb.jpg" onload="fadeIn(this)" />
+			<p class="thumb__title">{{title}}</p>
 		</div>
-		<div class="project">
-			<button class="project__close-btn">X</button>
-			<h2>{{title}}</h2>
-
-			{{#if link}}
-			<a href="{{link}}" target="_blank">{{link}}</a>
-			{{/if}}
-
-			{{#if description}}
-			<p>{{description}}</p>
-			{{/if}}
-
-			<div class="project__tags">
-				<span>Tags:</span>
-				{{#each tags}}
-					<span>{{this}}</span> |
-				{{/each}}
-			</div>
-
-			{{#if images}}
-				{{#each images}}
-					<img src="./img/{{this}}" />
-				{{/each}}
-			{{/if}}
-
-			{{#if files}}
-				{{#each files}}
-					{{#ifCond type '==' "html"}}
-						<div class="project__file">
-							<iframe width="{{width}}" height="{{height}}" style="border: none;" src="{{src}}"></iframe>
-						</div>
-					{{/ifCond}}
-					{{#ifCond type '==' "swf"}}
-						<div class="project__file">
-							<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="{{width}}" height="{{height}}" id="movie_name" align="middle"> <param name="movie" value="{{src}}"/> <!--[if !IE]>--> <object type="application/x-shockwave-flash" data="{{src}}" width="{{width}}" height="{{height}}"> <param name="movie" value="{{src}}"/> <!--<![endif]--> <a href="http://www.adobe.com/go/getflash"> <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player"/> </a> <!--[if !IE]>--> </object> <!--<![endif]--> </object>
-						</div>
-					{{/ifCond}}
-				{{/each}}
-			{{/if}}
-		</div>
+		<div class="project"></div>
 	</div>
 {{/each}}
+</script>
+
+<script id="template--project" type="text/x-handlebars-template">
+	<div class="project__inner">
+		<button class="project__close-btn">X</button>
+		<h2>{{title}}</h2>
+
+		{{#if link}}
+		<a href="{{link}}" target="_blank">{{link}}</a>
+		{{/if}}
+
+		{{#if description}}
+		<p>{{description}}</p>
+		{{/if}}
+
+		<div class="project__tags">
+			<div>
+				<span>Tags:</span>
+				{{#each tags}}
+					<span>{{this}}</span><span>, </span>
+				{{/each}}
+			</div>
+			<div>
+				<span>Technologies:</span>
+				{{#each technologies}}
+					<span>{{this}}</span><span>, </span>
+				{{/each}}
+			</div>
+		</div>
+
+		{{#if images}}
+			{{#each images}}
+				<img src="./img/{{this}}" onload="fadeIn(this)" />
+			{{/each}}
+		{{/if}}
+
+		{{#if files}}
+			{{#each files}}
+				{{#ifCond type '==' "html"}}
+					<div class="project__file">
+						<!-- <button class="fullscreen-btn" data-fs="iframe-{{@index}}">Fullscreen</button> -->
+						{{#if keepAspectRatio}}<div class="aspect-ratio">{{/if}}
+							<iframe id="iframe-{{@index}}" width="{{width}}" height="{{height}}" style="border: none;" src="{{src}}" allowfullscreen></iframe>
+						{{#if keepAspectRatio}}</div>{{/if}}
+					</div>
+				{{/ifCond}}
+				{{#ifCond type '==' "swf"}}
+					<div class="project__file">
+						<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="{{width}}" height="{{height}}" id="movie_name" align="middle"> <param name="movie" value="{{src}}"/> <!--[if !IE]>--> <object type="application/x-shockwave-flash" data="{{src}}" width="{{width}}" height="{{height}}"> <param name="movie" value="{{src}}"/> <!--<![endif]--> <a href="http://www.adobe.com/go/getflash"> <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player"/> </a> <!--[if !IE]>--> </object> <!--<![endif]--> </object>
+					</div>
+				{{/ifCond}}
+			{{/each}}
+		{{/if}}
+	</div>
 </script>

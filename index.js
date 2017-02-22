@@ -25,5 +25,35 @@
 
 		initGrid();
 
+		$('body').on('click', '.fullscreen-btn', function(){
+			toggleFullScreen(document.getElementById($(this).data('fs')));
+		});
+
+		window.fadeIn = function(el){
+			$(el).fadeIn(500);
+		}
+
+
+		function toggleFullScreen(el) {
+		  if ((document.fullScreenElement && document.fullScreenElement !== null) ||    
+		   (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+		    if (el.requestFullScreen) {  
+		      el.requestFullScreen();  
+		    } else if (el.mozRequestFullScreen) {  
+		      el.mozRequestFullScreen();  
+		    } else if (el.webkitRequestFullScreen) {  
+		      el.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);  
+		    }  
+		  } else {  
+		    if (document.cancelFullScreen) {  
+		      document.cancelFullScreen();  
+		    } else if (document.mozCancelFullScreen) {  
+		      document.mozCancelFullScreen();  
+		    } else if (document.webkitCancelFullScreen) {  
+		      document.webkitCancelFullScreen();  
+		    }  
+		  }  
+		}
+
 	});
 })(jQuery);

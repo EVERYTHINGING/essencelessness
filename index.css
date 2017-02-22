@@ -14,11 +14,47 @@ html, body {
 body {
 	margin: 0;
 	padding: 0;
-	font-family: 'Georgia';
-	text-transform: uppercase;
-	font-style: italic;
+	font-family: 'Raleway', sans-serif;
+	/*font-style: italic;*/
 	background-color: #000;
 	color: #fff;
+}
+
+button {
+	outline: none;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	background: transparent;
+	cursor: pointer;
+}
+
+.page-title {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	text-transform: uppercase;
+}
+
+.page-title a {
+	display: block;
+	margin: 0;
+	color: #fcfcfc;
+	transition: letter-spacing 0.2s cubic-bezier(0.190, 1.000, 0.220, 1.000);
+	letter-spacing: 0.4em;
+	text-decoration: none;
+}
+
+.page-title a:hover {
+	letter-spacing: 0.5em;
+}
+
+.container {
+	max-width: 1400px;
+	margin: 0 auto;
+}
+
+.grid-container {
+	position: relative;
 }
 
 .grid {
@@ -26,7 +62,9 @@ body {
 	top: 0px;
 	left: 0px;
 	width: 100%;
-	margin-bottom: 25%;\
+	margin-bottom: 25%;
+	background-color: #000;
+	z-index: 1;
 	overflow: visible;
 }
 
@@ -65,7 +103,22 @@ body {
 	overflow: hidden;
 }
 
+.thumb__title {
+	position: absolute;
+	left: -100%;
+	bottom: 0px;
+	padding: 15px;
+	background-color: #fcfcfc;
+	color: #1f1f1f;
+	transition: left 0.3s cubic-bezier(0.190, 1.000, 0.220, 1.000);
+}
+
+.thumb:hover .thumb__title {
+	left: 0px;
+}
+
 .thumb img {
+	display: none;
 	width: 100%;
 }
 
@@ -76,14 +129,66 @@ body {
 	left: 0px;
 	width: 100%;
 	height: 100%;
-	padding: 20px;
+	padding-bottom: 0px;
 	z-index: 2;
+	background-color: #fcfcfc;
+	color: #8e8e8e;
 	overflow-y: auto;
-	background-color: #fff;
-	color: #000;
+}
+
+.project__inner {
+	position: relative;
+	width: 100%;
+	padding-top: 60px;
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-bottom: 60px;
+	max-width: 1400px;
+	margin: 0 auto;
 }
 
 .project img {
 	display: none;
 	max-width: 100%;
+}
+
+.project h2 {
+	font-size: 3em;
+	text-align: center;
+	margin-top: 0px;
+	margin-bottom: 50px;
+	color: #1f1f1f;
+	text-transform: uppercase;
+}
+
+.project__file {
+	text-align: center;
+}
+
+.project__file .aspect-ratio {
+	position: relative;
+	width: 100%;
+	height: 0;
+	padding-bottom: 51%;
+}
+
+.project__file .aspect-ratio iframe {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0; 
+}
+
+.project__tags {
+	margin-bottom: 50px;
+}
+
+.project__tags span:last-child {
+	display: none;
+}
+
+.project__close-btn {
+	position: absolute;
+	font-size: 1.5em;
 }

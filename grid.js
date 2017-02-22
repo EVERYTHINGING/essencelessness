@@ -3,6 +3,8 @@
 		//todo
 		//1. fix fast clicking bugs
 		//2. see if translate3d works better for grid transforms than top, left
+		//3. fix resize issues
+		//4. try another animation library
 
 		var $window = $(window);
 		var $body = $('body');
@@ -15,29 +17,10 @@
 		var $selectedBox = null;
 
 		window.initGrid = function(){
-			/*
-			$('.project').each(function(index, value){
-				var $box = $(this);
-				var rgb = [180, Math.floor(Math.random()*255), Math.floor(Math.random()*255)];
-				rgb.sort(function() { return 0.5 - Math.random() });
-
-				$box.css({
-					'background-color': 'rgb('+rgb[0]+', '+rgb[1]+', '+rgb[2]+')',
-					'color': 'rgb('+(255-rgb[0])+', '+(255-rgb[1])+', '+(255-rgb[2])+')'
-				});
-
-				$box.find('a').css({
-					'color': 'rgb('+(200-rgb[0])+', '+(200-rgb[1])+', '+(200-rgb[2])+')'
-				});
-			});
-			*/
 
 			$('.box').click(function(){
 				openBox($(this));
 			});
-
-			boxMultipleWidth = $window.width()/$('.box').first().outerWidth();
-			boxMultipleHeight = $window.height()/$('.box').first().outerHeight();
 
 			onResize();
 		}
@@ -52,28 +35,27 @@
 				closeBox($selectedBox, 0);
 				setTimeout(function(){ openBox($box); }, 0);
 			}else{
+				//add html to project
+				var $project = $box.find('.project');	
+				var projectTemplate = Handlebars.compile($("#template--project").html());
+				var projectHTML = projectTemplate(window.data.projects[$box.data('name')]);
+				$project.append(projectHTML);
+				$project.fadeIn(300);
+
+				var top  = (($grid.offset().top*scale)  - ($box.offset().top*scale) - $grid.offset().top) + $window.scrollTop() + (($window.height()-($box.outerHeight()*scale))/2);
+				console.log($grid.offset().left);
+				var left = (($grid.offset().left*scale) - ($box.offset().left*scale)  - $grid.offset().left) + (($window.width() - ($box.outerWidth()*scale))/2);
+
+				//animate grid
 				$grid.data('scale', scale);
 				$grid.stop(true, true).animate({
-					top: (((-1*($box.offset().top))*scale)+$window.scrollTop()) + (($window.height()-($box.outerHeight()*scale))/2),
-					left: ((-1*($box.offset().left))*scale)+(($window.width() - ($box.outerWidth()*scale))/2),
+					top: top,
+					left: left,
 					width: $grid.width()*scale,
 					height: $grid.height()*scale
-				}, 400, 'easeOutExpo');
+				}, 300, 'easeOutExpo');	
 
-
-				$grid.addClass('zoomed');
-				$selectedBox = $box;
-				$box.addClass('open');
-				$body.css({ overflow: 'hidden' });
-
-				var $project = $box.find('.project');	
-				$project.fadeIn(300);		
-
-				$project.find('img').each(function(index){
-					var $img = $(this);
-					$img.delay(400+(100*index)).fadeIn(1000);
-				});
-
+				//animate project
 				if($window.width() > $window.height()){
 					var spacing = ($window.height()-($box.outerHeight()*scale))/2;
 					
@@ -89,12 +71,16 @@
 						height: $window.height()-(spacing*2)
 					}, 300, 'easeOutExpo');
 				}
-				
+
+				$grid.addClass('zoomed');
+				$selectedBox = $box;
+				$box.addClass('open');
+				$body.css({ overflow: 'hidden' });
 			}
 		}
 
 		function closeBox($box, speed){
-			
+			//animate grid
 			$grid.stop(true, true).delay(speed).animate({
 				top: 0,
 				left: 0,
@@ -103,11 +89,9 @@
 			}, 300, 'easeOutExpo', function(){
 				$grid.css({ width: "100%", height: "auto" });
 			});
-
-			$grid.removeClass('zoomed');
-
+	
+			//animate project
 			var $project = $box.find('.project');
-			$project.find('img').delay(speed).fadeOut(0);
 			$project.stop(true, true).animate({
 				top: 0,
 				left: 0,
@@ -121,10 +105,11 @@
 
 				$box.removeClass('open');
 				$body.css({ overflow: 'auto' });
+				$project.empty();
 			});
 
+			$grid.removeClass('zoomed');
 			$project.fadeOut(100);
-
 			$selectedBox = null;
 		}
 
@@ -133,15 +118,16 @@
 			closeBox($(this).parents('.box'), 300);
 		});
 
-		
 		function onResize(){
+			if($selectedBox){ closeBox($selectedBox); }
+
+			boxMultipleWidth = $grid.width()/$('.box').first().outerWidth();
+			boxMultipleHeight = $window.height()/$('.box').first().outerHeight();
 			scale = boxMultipleWidth*openScale;
 			
 			if($window.width() > $window.height()){
 				scale = boxMultipleHeight*openScale;
 			}
-
-			if($selectedBox){ closeBox($selectedBox); }
 		}
 
 		$window.resize(function(){
